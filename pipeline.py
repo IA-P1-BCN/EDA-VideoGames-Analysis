@@ -8,12 +8,11 @@ def load_data(file_path: str) -> pd.DataFrame:
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean missing values and optimize memory footprint."""
+    """Clean missing values, remove duplicates and optimize memory."""
+
     df_clean = df.dropna(subset=['Publisher']).copy()
 
-    for col in ['Platform', 'Genre', 'Publisher']:
-        if col in df_clean.columns:
-            df_clean[col] = df_clean[col].astype('category')
+    df_clean = df_clean.drop_duplicates()
 
     sales_cols = [
         'NA_Sales',
@@ -22,14 +21,24 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         'Other_Sales',
         'Global_Sales',
     ]
+
     for col in sales_cols:
         if col in df_clean.columns:
+            df_clean[col] = (
+                df_clean[col]
+                .astype('string')
+                .str.replace(',', '.', regex=False)
+            )
+
             df_clean[col] = pd.to_numeric(
                 df_clean[col], errors='coerce'
             ).astype('float32')
 
-    return df_clean
+    for col in ['Platform', 'Genre', 'Publisher']:
+        if col in df_clean.columns:
+            df_clean[col] = df_clean[col].astype('category')
 
+    return df_clean
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     """Safely calculate Western market share and sales categories."""
