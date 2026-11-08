@@ -37,7 +37,14 @@ with col_left:
     st.subheader("Global Sales Distribution by Genre")
     fig, ax = plt.subplots(figsize=(6, 4))
     genre_sales = filtered_df.groupby('Genre')['Global_Sales'].sum().sort_values(ascending=False)
-    sns.barplot(x=genre_sales.values, y=genre_sales.index, ax=ax, palette='Blues_r')
+    sns.barplot(
+    x=genre_sales.values,
+    y=genre_sales.index.astype(str),
+    hue=genre_sales.index.astype(str),
+    ax=ax,
+    palette='Blues_r',
+    legend=False,
+)
     ax.set_xlabel("Sales (Millions)")
     st.pyplot(fig)
 
