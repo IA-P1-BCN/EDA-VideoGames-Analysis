@@ -16,7 +16,7 @@ Este informe documenta el análisis exploratorio (EDA) sobre un dataset históri
 
 - El dataset contiene **7,112 registros brutos**; tras el pipeline de depuración se analizan **7,088 títulos** (24 duplicados eliminados, 0 valores nulos).
 - El volumen total asciende a **5,440.4 millones de unidades**: Norteamérica concentra el **50.8%**, Europa el **30.4%**, Japón el **8.2%** y otras regiones el **10.6%**.
-- Los mercados occidentales (NA + EU) suman de forma agregada el **81.2% del volumen global**; la media por título de la métrica derivada `NA_EU_Share` es **0.83** (79.9% agregado en la categoría Blockbuster).
+- Los mercados occidentales (NA + EU) suman de forma agregada el **81.2% del volumen global**; la media por título de la métrica derivada `NA_EU_Share` es **0.83** (en la categoría Blockbuster: **79.9%** agregado y **80.8%** de media por título).
 - La correlación de Pearson entre `NA_Sales` y `EU_Sales` es **r = 0.8382**: fuerte y positiva, aunque moderada por la presencia de blockbusters.
 - La distribución de `Global_Sales` está fuertemente sesgada a la derecha (asimetría ≈ 16.1): la **media (0.77 M) casi triplica la mediana (0.29 M)**, y el 9.9% de títulos que superan el límite del rango intercuartílico (≈ 1.71 M) concentran el **54.5% del volumen total**.
 - El procesamiento está centralizado en `pipeline.py`, cubierto por **3 pruebas unitarias** y con una reducción de memoria en ejecución del **≈ 52%** (0.87 MB → 0.42 MB).
@@ -104,7 +104,7 @@ Antes de presentar resultados, conviene explicitar las limitaciones que acotan s
 **Resultados observados:**
 
 - La correlación de Pearson entre `NA_Sales` y `EU_Sales` es **r = 0.8382**, un ajuste lineal fuerte aunque influido por los títulos de mayor volumen.
-- La cuota occidental agregada (suma de unidades) es del **81.2%** del volumen global. La métrica por título `NA_EU_Share` presenta una media de **0.83**; en la categoría Blockbuster (582 títulos), media de **0.81** y cuota agregada de **79.9%**.
+- La cuota occidental agregada (suma de unidades) es del **81.2%** del volumen global. La métrica por título `NA_EU_Share` presenta una media de **0.83**; en la categoría Blockbuster (582 títulos), la cuota agregada es del **79.9%** y la media por título del **80.8%**.
 - En Japón, el género con mayor volumen es **Role-Playing (125.3 M)**, seguido de Action (77.5 M) y Platform (43.6 M); Shooter ocupa un lugar secundario (18.9 M). Las correlaciones de Japón con los mercados occidentales son moderadas: r = 0.47 con NA y r = 0.52 con EU.
 - Los géneros líderes en Norteamérica son Action (609.2 M), Sports (473.0 M) y Shooter (462.3 M); en Europa, Action (400.6 M), Shooter (268.8 M) y Sports (254.2 M).
 
