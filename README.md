@@ -3,7 +3,6 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/framework-Streamlit-FF4B4B.svg)](https://streamlit.io/)
 [![Testing](https://img.shields.io/badge/testing-Pytest-yellow.svg)](https://docs.pytest.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](#)
 
 Proyecto de **Análisis Exploratorio de Datos (EDA)** y arquitectura modular en Python enfocado en el dataset histórico de ventas globales de videojuegos de Kaggle. El proyecto abarca desde la exploración estadística y tratamiento de anomalías hasta la implementación de pruebas unitarias (`pytest`), un pipeline automatizado reproducible y un tablero interactivo ejecutivo (`Streamlit`).
 
@@ -16,7 +15,7 @@ Proyecto de **Análisis Exploratorio de Datos (EDA)** y arquitectura modular en 
 Los datos analizados proceden del repositorio público de **Kaggle**:
 * **Fuente original:** [Video Game Sales Dataset (Kaggle)](https://www.kaggle.com/datasets/gregorut/videogamesales)
 * **Archivo fuente local:** `dato.csv`
-* **Archivo optimizado en producción:** `dato_cleaned.csv`
+* **Archivo limpio y optimizado:** `dato_cleaned.csv`
 
 ### Diccionario de Datos Principal
 | Variable | Descripción | Tipo de Dato |
@@ -151,5 +150,7 @@ Se desplegará automáticamente la interfaz web interactiva en `http://localhost
 
 ## 📄 7. Documentación Ampliada
 
-* **[Informe ejecutivo en PDF](INFORME_INVESTIGACION_EDA.pdf)** — versión editorial de 2 páginas, pensada para público no técnico.
-* **[Informe de investigación en Markdown](INFORME_INVESTIGACION_EDA.md)** — fuente editable con el desarrollo metodológico completo: verificación de cifras, limitaciones del dataset, análisis regional detallado y conclusiones con sus interpretaciones.
+Los enlaces a ambos documentos están disponibles al inicio de este README:
+
+* **Informe ejecutivo (PDF)** — `INFORME_INVESTIGACION_EDA.pdf`: versión editorial de 2 páginas, pensada para público no técnico.
+* **Informe de investigación (Markdown)** — `INFORME_INVESTIGACION_EDA.md`: fuente editable con el desarrollo metodológico completo: verificación de cifras, limitaciones del dataset, análisis regional detallado y conclusiones con sus interpretaciones.
